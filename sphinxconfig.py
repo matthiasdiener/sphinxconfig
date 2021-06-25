@@ -3,8 +3,6 @@ from os.path import dirname as _dirname, basename as _basename
 html_theme = "furo"
 html_show_sourcelink = True
 
-raise RuntimeError(__file__)
-
 project = _basename(_dirname(_dirname(__file__)))
 
 autoclass_content = "class"
