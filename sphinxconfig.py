@@ -67,6 +67,7 @@ extensions = [
         "sphinx.ext.intersphinx",
         "sphinx.ext.linkcode",
         "sphinx.ext.doctest",
+        "sphinx.ext.mathjax",
         "sphinx_copybutton",
         ]
 
