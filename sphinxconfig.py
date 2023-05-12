@@ -15,16 +15,16 @@ def linkcode_resolve(domain, info, linkcode_url=None):
     import os
     import sys
     import inspect
-    import pkg_resources
 
     if domain != "py" or not info["module"]:
         return None
 
-    modname = info["module"]
-    topmodulename = modname.split(".")[0]
+    submodname = info["module"]
+    topmodname = submodname.split(".")[0]
     fullname = info["fullname"]
 
-    submod = sys.modules.get(modname)
+    topmod = sys.modules.get(topmodname)
+    submod = sys.modules.get(submodname)
     if submod is None:
         return None
 
@@ -36,7 +36,7 @@ def linkcode_resolve(domain, info, linkcode_url=None):
             return None
 
     try:
-        modpath = pkg_resources.require(topmodulename)[0].location
+        modpath = os.path.dirname(os.path.dirname(inspect.getsourcefile(topmod)))
         filepath = os.path.relpath(inspect.getsourcefile(obj), modpath)
         if filepath is None:
             return
