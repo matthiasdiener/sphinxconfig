@@ -52,7 +52,7 @@ def linkcode_resolve(domain, info, linkcode_url=None):
 
     if linkcode_url is None:
         linkcode_url = (
-            f"https://github.com/inducer/{project}/blob/"
+            f"https://github.com/matthiasdiener/{project}/blob/"
             + "main"
             + "/{filepath}#L{linestart}-L{linestop}"
         )
